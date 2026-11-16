@@ -1,0 +1,11 @@
+{
+  "engine": "wobkot",
+  "engineRepository": "https://github.com/ufm42/wobkot",
+  "engineRevision": "84ac4a76021a461270948fba72937767f90ec2f0",
+  "launchPath": "engine/wobkot/index.html",
+  "requiredPs5Assets": [
+    "engine/wobkot/src/ps5/kexp.bin",
+    "engine/wobkot/src/ps5/elfldr.elf"
+  ],
+  "firmwareDetection": "PlayStation browser user-agent only; no compatibility assertion"
+}
