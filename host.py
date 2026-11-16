@@ -6,9 +6,9 @@ from __future__ import annotations
 import argparse
 import functools
 import http.server
-import os
 import ssl
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 
 class QuietStaticHandler(http.server.SimpleHTTPRequestHandler):
@@ -16,6 +16,25 @@ class QuietStaticHandler(http.server.SimpleHTTPRequestHandler):
 
     def __init__(self, *args, directory: str, **kwargs):
         super().__init__(*args, directory=directory, **kwargs)
+
+    def _deny_private_paths(self) -> bool:
+        # The host serves the repository root. Never expose dotfiles, Git metadata,
+        # local TLS private keys, or development configuration over HTTP(S).
+        parts = Path(unquote(urlsplit(self.path).path)).parts
+        if any(part.startswith(".") for part in parts):
+            self.send_error(404, "Not found")
+            return True
+        return False
+
+    def do_GET(self):
+        if self._deny_private_paths():
+            return
+        super().do_GET()
+
+    def do_HEAD(self):
+        if self._deny_private_paths():
+            return
+        super().do_HEAD()
 
     def list_directory(self, path):
         self.send_error(403, "Directory listing is disabled")
@@ -67,7 +86,7 @@ def main() -> None:
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\nStopping Webokit host…")
+        print("\\nStopping Webokit host…")
     finally:
         server.server_close()
 
