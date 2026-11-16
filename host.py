@@ -86,7 +86,8 @@ def main() -> None:
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print()\n        print("Stopping Webokit host…")
+        print()
+        print("Stopping Webokit host…")
     finally:
         server.server_close()
 
