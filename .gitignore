@@ -1,0 +1,11 @@
+.certs/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+Thumbs.db
+node_modules/
+coverage/
+# Wobkot PS5 payloads are local test assets; never commit them by default.
+engine/wobkot/src/ps5/kexp.bin
+engine/wobkot/src/ps5/elfldr.elf
