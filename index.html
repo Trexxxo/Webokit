@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="Webokit — a modular PlayStation WebKit launcher">
+  <title>Webokit</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/css/webokit.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <script type="module" src="assets/js/webokit.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Webokit home">
+        <span class="brand-mark">W</span>
+        <span>WEBOKIT<span class="brand-dot">.</span></span>
+      </a>
+      <div class="topbar-right">
+        <span class="build-tag">INTEGRATION PREVIEW</span>
+        <span class="live-indicator"><i></i> LOCAL SESSION</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PLAYSTATION WEBKIT TOOLKIT</p>
+        <h1>Your console.<br><span>Your entry point.</span></h1>
+        <p class="hero-description">A unified starting point for the Webokit engine, environment checks, and local payload workflow.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" id="launch-engine" href="engine/wobkot/index.html">
+            <span class="button-icon">↗</span> Open Wobkot engine
+          </a>
+          <button class="button button-secondary" id="refresh-checks" type="button">Refresh checks</button>
+        </div>
+        <p class="launch-note" id="launch-note" role="status">Engine availability is being checked…</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="core-emblem"><span>W</span><small>WEBKIT</small></div>
+        <div class="orbit-node node-a"></div><div class="orbit-node node-b"></div><div class="orbit-node node-c"></div>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div><p class="eyebrow">ENVIRONMENT</p><h2>System overview</h2></div>
+      <span class="section-caption">LIVE BROWSER DIAGNOSTICS</span>
+    </section>
+    <section class="status-grid" aria-label="System status">
+      <article class="status-card">
+        <div class="card-top"><span class="card-label">PLATFORM</span><span class="status-symbol" id="platform-symbol">●</span></div>
+        <strong id="platform-value">Detecting…</strong><span class="card-foot" id="platform-detail">Reading browser environment</span>
+      </article>
+      <article class="status-card">
+        <div class="card-top"><span class="card-label">FIRMWARE</span><span class="status-symbol" id="firmware-symbol">●</span></div>
+        <strong id="firmware-value">—</strong><span class="card-foot" id="firmware-detail">User-agent report only</span>
+      </article>
+      <article class="status-card">
+        <div class="card-top"><span class="card-label">ENGINE</span><span class="status-symbol" id="engine-symbol">●</span></div>
+        <strong id="engine-value">Checking…</strong><span class="card-foot" id="engine-detail">Pinned Wobkot submodule</span>
+      </article>
+      <article class="status-card">
+        <div class="card-top"><span class="card-label">PAYLOAD FILES</span><span class="status-symbol" id="payload-symbol">●</span></div>
+        <strong id="payload-value">Checking…</strong><span class="card-foot" id="payload-detail">PS5 engine assets</span>
+      </article>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel compatibility-panel">
+        <div class="panel-heading"><div><p class="eyebrow">BEFORE YOU LAUNCH</p><h2>Readiness checklist</h2></div><span class="panel-icon">⌁</span></div>
+        <ul class="check-list" id="check-list">
+          <li><span class="check-dot"></span><span>Checking platform and engine files…</span></li>
+        </ul>
+        <p class="disclaimer">Detection is informational. It does not verify exploit compatibility, payload provenance, or jailbreak success.</p>
+      </article>
+      <article class="panel console-panel">
+        <div class="panel-heading"><div><p class="eyebrow">DIAGNOSTICS</p><h2>Session log</h2></div><button class="text-button" id="clear-log" type="button">CLEAR</button></div>
+        <pre id="session-log" aria-live="polite">[webokit] Initializing launcher…</pre>
+        <div class="log-footer"><span><i></i> SYSTEM OUTPUT</span><span id="log-count">01 EVENTS</span></div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span>WEBOKIT <b>·</b> OPEN-SOURCE PROJECT</span>
+      <span>EXPLOIT ENGINE BY ITS RESPECTIVE AUTHORS</span>
+    </footer>
+  </main>
+</body>
+</html>

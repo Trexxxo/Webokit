@@ -1,0 +1,3 @@
+[submodule "engine/wobkot"]
+	path = engine/wobkot
+	url = https://github.com/ufm42/wobkot.git

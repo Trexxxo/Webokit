@@ -1,0 +1,9 @@
+{
+  "name": "Webokit",
+  "short_name": "Webokit",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080b12",
+  "theme_color": "#080b12",
+  "description": "A modular PlayStation WebKit launcher"
+}
